@@ -6,11 +6,19 @@ extern "C" {
 #endif
 
 /*spi pin source*/
+#if 0
 #define SPI_PORT spi0
 #define PIN_SCK  2
 #define PIN_MOSI 3
 #define PIN_MISO 4
 #define PIN_CS   5
+#endif
+//spi1
+#define SPI_PORT spi1
+#define PIN_SCK  10
+#define PIN_MOSI 11
+#define PIN_MISO 12
+#define PIN_CS   13
 
 #define JPEG   0
 #define RGB565 1
@@ -22,13 +30,27 @@ extern "C" {
 #define PIN_SCL  9
 #define WRITE_BIT 0x80
 
+#define uart_sel  0
+#if uart_sel
 #define UART_ID uart0
 #define BAUD_RATE 921600
+#else
+#define UART_ID uart1
+//#define BAUD_RATE 921600
+#define BAUD_RATE 115200
+
+#endif
 #define DATA_BITS 8
 #define STOP_BITS 1
 #define PARITY    UART_PARITY_NONE
+#if uart_sel
 #define UART_TX_PIN 0
 #define UART_RX_PIN 1
+#else
+#define UART_TX_PIN 4
+#define UART_RX_PIN 5
+
+#endif
 
 #ifndef _SENSOR_
 #define _SENSOR_

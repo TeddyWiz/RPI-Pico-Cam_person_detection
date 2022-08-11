@@ -25,6 +25,7 @@ void RespondToDetection(tflite::ErrorReporter* error_reporter,
                        person_score, no_person_score);
 #ifndef DO_NOT_OUTPUT_TO_UART
   uint8_t header[4] = {0x55, 0xBB, (uint8_t)person_score, (uint8_t)no_person_score};
-  uart_write_blocking(uart0, header, 4);
+  //uart_write_blocking(uart0, header, 4);
+  uart_write_blocking(uart1, header, 4);
 #endif
 }

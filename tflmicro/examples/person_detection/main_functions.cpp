@@ -103,6 +103,7 @@ void on_uart_rx() {
 }
 
 void setup_uart() {
+  stdio_init_all();
   // Set up our UART with the required speed.
   uint baud = uart_init(UART_ID, BAUD_RATE);
   // Set the TX and RX pins by using the function select on the GPIO
